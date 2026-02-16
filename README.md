@@ -1,96 +1,150 @@
----
-
 # Aut0mat1c-Sn1ffer
 
-**Aut0mat1c-Sn1ffer** is a powerful automation script designed for cybersecurity labs and penetration testing environments. It streamlines the process of payload delivery and automated reverse shell capture, reducing manual overhead during exploitation phases.
+> Automated Reverse Shell Listener & Payload Helper for Cybersecurity Labs
+
+Aut0mat1c-Sn1ffer is a lightweight Bash-based automation tool designed to simplify reverse shell handling during penetration testing and cybersecurity lab environments.  
+It reduces repetitive manual setup steps and allows faster exploitation workflow execution.
 
 ---
 
-## 🚀 Features
+## 🎯 Purpose
 
-* **Automated Listening:** Quickly sets up listeners for incoming connections.
-* **Payload Integration:** Simplifies the deployment of payloads to target machines.
-* **Environment Ready:** Optimized for Kali Linux and similar penetration testing distributions.
-* **Lightweight:** Pure Bash implementation with minimal dependencies.
+During lab-based exploitation scenarios, setting up listeners, preparing payload commands, and managing connections can be repetitive.
+
+Aut0mat1c-Sn1ffer automates:
+
+- Listener initialization
+- Port configuration
+- Payload command generation
+- Reverse shell capture process
+
+Built specifically for:
+- Cybersecurity students
+- CTF players
+- Offensive security beginners
+- Lab-based penetration testers
 
 ---
 
-## 🛠️ Installation & Setup
+## ⚙️ Core Features
 
-To use **Aut0mat1c-Sn1ffer**, clone the repository and grant execution permissions to the script.
+- 🔄 Automated reverse shell listener setup  
+- 🧠 Guided configuration (Target IP & Port input)  
+- 💻 Pure Bash implementation  
+- 🐧 Optimized for Kali Linux  
+- ⚡ Minimal dependencies  
+- 🧪 Designed for controlled lab environments  
+
+---
+
+## 🛠 Installation
 
 ### 1️⃣ Clone the Repository
 
-Open your terminal (e.g., `xterm` or GNOME Terminal) and run:
+Open your terminal (`xterm`, GNOME Terminal, etc.):
 
 ```bash
 git clone https://github.com/umitsTASCI/Aut0mat1c-Sn1ffer.git
 cd Aut0mat1c-Sn1ffer
-```
+````
 
-### 2️⃣ Grant Permissions
-
-The script must be executable:
+### 2️⃣ Make the Script Executable
 
 ```bash
-chmod +x aut0mat1c-sn1ffer.sh
+chmod +x sniff.sh
 ```
 
 ---
 
-## 📖 Usage
+## ▶️ Usage
 
-Run the script using `sudo` to ensure all network-related functions (such as packet sniffing or port binding) work properly:
+Run the script with elevated privileges to allow proper port binding and network handling:
 
 ```bash
-sudo ./aut0mat1c-sn1ffer.sh
+sudo ./sniff.sh
 ```
-
-### 🔎 Workflow
-
-1. **Launch:** Start the tool.
-2. **Configure:** Enter the target IP address and desired reverse shell port.
-3. **Deploy:** The tool generates the necessary payload/command and begins listening for the connection.
 
 ---
 
-## 📷 Optional: Screenshot
+## 🔎 How It Works
 
-If available, add a screenshot to improve presentation:
+1. The tool prompts you to enter:
+
+   * Target IP
+   * Desired listening port
+2. It generates the required payload command.
+3. It automatically initializes the listener.
+4. Waits for incoming reverse shell connection.
+
+---
+
+## 🧪 Recommended Environment
+
+* Kali Linux
+* VirtualBox / VMware lab setups
+* Controlled CTF environments
+* Isolated penetration testing labs
+
+---
+
+## 📷 Screenshot (Optional Enhancement)
+
+Add a screenshot inside your repository:
 
 ```markdown
 ![Aut0mat1c-Sn1ffer Demo](images/demo.png)
 ```
 
----
-
-## 🛡️ Disclaimer
-
-This tool is developed strictly for **educational purposes** and **authorized penetration testing** only.
-
-Any unauthorized use against systems without explicit permission is illegal. The end user is responsible for complying with all applicable local, state, and federal laws.
-
-The author assumes no liability and is not responsible for any misuse or damage caused by this program.
+A visual demo significantly increases professionalism.
 
 ---
 
-## 👤 About the Author
+## 🛡 Legal Disclaimer
 
-Developed by a **Cybersecurity Student at Karabuk University**, actively participating in the **Siber Vatan** program.
+This project is developed strictly for:
 
-Focused on:
+* Educational purposes
+* Authorized penetration testing
+* Cybersecurity research
+
+Unauthorized use against systems without explicit permission is illegal.
+
+The author assumes no responsibility for misuse or damage caused by this tool.
+
+---
+
+## 👨‍💻 Author
+
+Cybersecurity Student at Karabuk University
+Active participant in the Siber Vatan program
+
+Focused Areas:
 
 * Offensive Security
-* Automation
-* Defensive Tool Development
-* Capture The Flag (CTF) Challenges
+* Exploitation Automation
+* Defensive Tooling
+* CTF Competitions
+* Bash & Low-Level Networking
 
 ---
 
-### ⚠️ Important Notes
+## 🌐 Repository
 
-* Ensure the script name matches your actual file (e.g., `aut0mat1c-sn1ffer.sh`).
-* Always test in controlled lab environments such as virtual machines.
-* Recommended environment: Kali Linux or similar penetration testing distributions.
+Hosted on GitHub
 
 ---
+
+## ⭐ Future Improvements (Roadmap)
+
+* Multi-listener support
+* Integrated payload encoding
+* Logging & session tracking
+* Colorized UI enhancements
+* Modular plugin structure
+
+---
+
+### “Automate the repetitive. Focus on the exploit.”
+
+```
+```
