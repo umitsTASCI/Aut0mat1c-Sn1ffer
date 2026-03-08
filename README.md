@@ -87,18 +87,6 @@ sudo ./sniff.sh
 
 ---
 
-## 📷 Screenshot (Optional Enhancement)
-
-Add a screenshot inside your repository:
-
-```markdown
-![Aut0mat1c-Sn1ffer Demo](images/demo.png)
-```
-
-A visual demo significantly increases professionalism.
-
----
-
 ## 🛡 Legal Disclaimer
 
 This project is developed strictly for:
