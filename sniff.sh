@@ -3,7 +3,7 @@ sudo apt update
 sudo apt install xterm
 sudo apt install python3
 if ! command -v cloudflared &> /dev/null; then
-    echo -e "${RED}[!] cloudflared bulunamadı, indiriliyor...${NC}"
+    echo -e "${RED}[!] cloudflared not found, installing...${NC}"
     wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
     sudo dpkg -i cloudflared-linux-amd64.deb
     rm cloudflared-linux-amd64.deb
