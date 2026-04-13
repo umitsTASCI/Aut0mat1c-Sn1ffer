@@ -48,9 +48,9 @@ check_port $HTTP_PORT
 check_port $NC_PORT
 
 xterm -T "Payload Server" -geometry 80x30+0+0 -hold -e \
-"python3 -m http.server $HTTP_PORT;
+"bash -c python3 -m http.server $HTTP_PORT;
  clear; 
- cloudflared tunnel --url http://localhost:80" &
+ cloudflared tunnel --url http://localhost:$HTTP_PORT" &
 
 xterm -T "NC Listener" -geometry 80x30+494+0 -hold -e \
 "echo -e '${GREEN}Listening...${NC}'; 
