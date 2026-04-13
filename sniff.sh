@@ -48,10 +48,13 @@ check_port $HTTP_PORT
 check_port $NC_PORT
 
 xterm -T "Payload Server" -geometry 80x30+0+0 -hold -e \
-"bash -c 'echo -e \"${BLUE}[*] Sunucu ve Tunel baslatiliyor...${NC}\"; \
-python3 -m http.server $HTTP_PORT & \
-sleep 3; \
-cloudflared tunnel --url http://localhost:$HTTP_PORT'" &
+"bash -c 'python3 -m http.server $HTTP_PORT & \
+ sleep 2; \
+ if command -v cloudflared &> /dev/null; then \
+    cloudflared tunnel --url http://localhost:$HTTP_PORT; \
+ else \
+    echo -e \"${RED}[!] cloudflared not found ${NC}\"; \
+ fi'" &
 
 xterm -T "NC Listener" -geometry 80x30+494+0 -hold -e \
 "echo -e '${GREEN}Listening...${NC}'; 
